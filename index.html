@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini Store Web App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .item {
+      padding: 10px;
+      background: white;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      background: #2a9df4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🛍️ Mini Store</h2>
+
+  <div class="item">
+    <b>Chocolate Cake - $15</b><br>
+    <button onclick="order('Chocolate Cake')">Order</button>
+  </div>
+
+  <div class="item">
+    <b>Vanilla Cupcake - $3</b><br>
+    <button onclick="order('Vanilla Cupcake')">Order</button>
+  </div>
+
+  <div class="item">
+    <b>Custom Mug - $10</b><br>
+    <button onclick="order('Custom Mug')">Order</button>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();  // Full screen in Telegram
+
+    function order(item) {
+      tg.sendData(item); // sends data back to the bot
+      tg.close(); // closes the web app
+    }
+  </script>
+</body>
+</html>
